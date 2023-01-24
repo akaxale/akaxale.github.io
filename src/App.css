@@ -6,10 +6,12 @@
 
 html {
   scroll-padding-top: 109px;
+  scroll-behavior: smooth;
 }
 
 body {
   font-family: "Space Grotesk", sans-serif;
+  scroll-padding-top: 109px;
   background: #000;
   
 }
@@ -321,7 +323,7 @@ header {
   background-image: linear-gradient(to right, #000, transparent);
   font-family: 'Inconsolata', 'sans-serif';
   font-weight: 500;
-  font-size: 2.6em;
+  font-size: 2.6rem;
   margin-bottom: .3em;
   padding: 0 .5em;
 }
@@ -981,13 +983,23 @@ p::selection {
     display: none;
   }
 
- .n7, .l7 {
+  
+  .n7, .l7 {
     display: none;
- }
-
+  }
+  
+  
 }
 
 @media (max-width: 620px) {
+  .n3, .l3 {
+     display: none;
+   }
+  
+  .n9, .l9 {
+    display: none;
+  }
+
   .cvBtn {
     font-size: 1.1rem;
     padding: .6em 4.5em;
@@ -1010,12 +1022,12 @@ p::selection {
   .jsP {
     margin-left: 3.3em;
   }
-
+/*
   .jsDiv:hover .afterS::after {
     animation: none;
     animation: mediaMissingLetter 4.5s infinite ease-out;
   }
-  
+  */
 }
 
 @media (max-width: 480px) {
@@ -1050,6 +1062,10 @@ p::selection {
   .progLogo {
     height: 70px;
   }
+
+  .greeting {
+    font-size: 2rem;
+  }
 }
 
 @media (max-width: 300px) {
@@ -1070,6 +1086,7 @@ p::selection {
   .progLogo {
     height: 60px;
   }
+
 }
 
 @media (max-width: 280px) {
@@ -1097,6 +1114,17 @@ p::selection {
   .logoDiv {
     font-size: .5rem;
     width: 190px;
+  }
+
+}
+@media (max-width: 230px) {
+  .greeting {
+    font-size: 1.5rem;
+  }
+
+  .cvBtn {
+    margin-top: .5em;
+    padding: .5em 3em;
   }
 }
 

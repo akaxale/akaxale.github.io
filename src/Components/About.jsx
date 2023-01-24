@@ -2,8 +2,6 @@ import React from 'react';
 import githubLogo from '../images/githubLogo.png';
 import linkedinLogo from '../images/linkedinLogo.png';
 
-
-
 export default function About() {
     return (
         <section id='about' className='about'>
