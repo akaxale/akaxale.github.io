@@ -13,23 +13,8 @@ body {
   font-family: "Space Grotesk", sans-serif;
   scroll-padding-top: 109px;
   background: #000;
+  overflow-x: hidden;
 }
-
-/*
-.app {
-  opacity: 1;
-  animation: opp 1s 1;
-}
-
-@keyframes opp {
-  0% {
-    opacity: 0;
-  }
-  100% {
-    opacity: 1;
-  }
-}
-*/
 
 .tag {
   font-family: "Inconsolata", sans-serif;
@@ -47,7 +32,7 @@ body {
 .preloader {
   color: #32CD32;
   font-family: 'Inconsolata', 'sans-serif';
-  font-size: 1em;
+  font-size: 1rem;
   font-weight: 900;
   padding-top: 0.5em;
   padding-left: 0.5em;
@@ -69,12 +54,14 @@ body {
 }
 
 
+
 /* ============= /LOADER SCREEN ============= */
 
 
 
 
 /* ======== NAVIGATION BAR ======== */
+
 
 
 nav {  
@@ -86,6 +73,7 @@ nav {
   align-items: center;
   background: #111;
   padding: 0;
+  margin: 0;
 }
 
 .logo {    
@@ -94,6 +82,7 @@ nav {
   padding: 0.3em 1.2em;
   cursor: pointer;  
   font-size: 1.4em;  
+  text-decoration-line: none;
   width: 110px;
   height: 110px;
   border: 1px solid #fff;
@@ -362,6 +351,10 @@ header {
 }
 
 .cvBtn:active {
+  background-color: #000;
+  color: #32CD32;
+  border: 1px solid #32CD32;
+  box-shadow: 5px 5px 15px #32CD32;
   scale: 0.95;
 }
 
@@ -370,6 +363,10 @@ header {
 /* ================ ABOUT ME ================ */
 
 
+
+.section {
+  border-bottom: 1px solid #000;
+}
 
 .about {
   background-color: #000;
@@ -482,7 +479,9 @@ header {
   letter-spacing: 2px;
 }
 
-.htmlDiv:hover .htmlP {
+.htmlDiv:hover .htmlP,
+.htmlDiv:focus .htmlP,
+.htmlDiv:active .htmlP {
   overflow: hidden;
   white-space: nowrap;
   animation: typeWritter 3s infinite steps(8), flashingBorder .7s infinite;
@@ -522,17 +521,23 @@ header {
 
 .c, .s, .s2 {transition: .5s;}
 
-.cssDiv:hover .c {
+.cssDiv:hover .c,
+.cssDiv:active .c,
+.cssDiv:focus .c {
   animation: jump 1s infinite;
   animation-timing-function: ease-out;
 }
 
-.cssDiv:hover .s {
+.cssDiv:hover .s,
+.cssDiv:active .s,
+.cssDiv:focus .s {
   animation: jump 1s infinite;
   animation-timing-function: ease-in-out;
 }
 
-.cssDiv:hover .s2 {
+.cssDiv:hover .s2,
+.cssDiv:active.s2,
+.cssDiv:focus.s2 {
   animation: jump 1s infinite;
   animation-timing-function: ease-in;
 }
@@ -569,7 +574,9 @@ header {
   transition: .5s;
 }
 
-.jsDiv:hover .afterS::after {
+.jsDiv:hover .afterS::after,
+.jsDiv:active .afterS::after,
+.jsDiv:focus .afterS::after {
   animation: missingLetter 4.5s infinite ease-out;
 }
 
@@ -682,7 +689,9 @@ header {
   margin-left: 1.3em;
 }
 
-.reactDiv:hover .react {
+.reactDiv:hover .react,
+.reactDiv:active .react,
+.reactDiv:focus .react {
   animation: 3s linear 0s normal none infinite running rot;
 }
 
@@ -708,13 +717,113 @@ header {
 .projects {
   background-color: #000;
   color: #fff;
-
 }
 
-.projects p {
-  margin: 5em auto;
-  width: 800px;
+.projects .tag {
+  padding-block: 1em;
+}
 
+.project-items {
+  padding-block: 2em;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.project-img {
+  width: 400px;
+  height: 250px;
+}
+
+.gallery {
+  --g: 8px; 
+  display: grid;
+  clip-path: inset(1px);
+}
+
+.gallery > a {
+  --_p: calc(-1*var(--g));
+  grid-area: 1/1;
+  cursor: pointer;
+  transition: .4s;
+}
+
+.gallery > a:first-child {
+  clip-path: polygon(0 0, calc(100% + var(--_p)) 0 , 0 calc(100% + var(--_p)))
+}
+
+.gallery > a:last-child {
+  clip-path: polygon(100% 100%, 100% calc(0% - var(--_p)), calc(0% - var(--_p)) 100%)
+}
+
+.gallery:hover > a:last-child,
+.gallery:hover > a:first-child:hover{
+  --_p: calc(50% - var(--g));
+}
+
+.gallery:hover > a:first-child,
+.gallery:hover > a:first-child:hover + a{
+  --_p: calc(-50% - var(--g));
+}
+
+.gallery-bottom {
+  text-align: center;
+  padding-block: .5em;
+}
+
+.gallery-bottom h3 a {
+  display: inline-table;
+  padding-bottom: .2em;
+  padding-inline: .3em;
+  text-decoration: none;
+  color: #fff;
+  opacity: .6;
+  transition: .2s;
+}
+
+h3 {
+  transition: .2s;
+}
+
+.img-block:hover h3 {
+  opacity: 1;
+  filter: drop-shadow(5px 8px 1px #2add39);
+}
+
+.img-block {
+  border-radius: 10px;
+  margin-top: 1em;
+}
+
+.media-img-blocks {
+  display: none;
+}
+
+.img {
+  width: 300px;
+  height: 180px;
+  background-color: #fff;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  border-radius: 10px;
+  border-bottom-right-radius: 0px;
+  border-bottom-left-radius: 0px;
+}
+
+.img1 {
+  background-image: url('./images/quiz-prev.jpg');
+}
+
+.img2 {
+  background-image: url('./images/todolist.jpg');
+}
+
+.img-footer {
+  border: 2px solid #383535;
+  border-radius: 10px;
+  border-top: none;
+  border-top-right-radius: 0px;
+  border-top-left-radius: 0px;
 }
 
 
@@ -723,9 +832,7 @@ header {
 
 
 
-/*
-=============== OTHER ===============
-*/
+/* ================== OTHER ================== */
 
 
 
@@ -926,12 +1033,27 @@ p::selection {
 
 
 
+@media (max-width: 970px) {
+  .img-block {
+    display: none;
+  }
+
+  .media-img-blocks {
+    display: block;
+    border-radius: 10px;
+    scale: 1.1;
+  }
+
+  .project-items {
+    gap: 50px;
+  }
+}
+
 @media (max-width: 900px) {
   .tag {
     margin-left: 1.5em;
   }
 }
-
 
 @media (max-width: 775px) {
 
@@ -968,9 +1090,6 @@ p::selection {
     bottom: 0;
     right: -13%;
   }
-  
-  /*----- @MEDIA ABOUT SECTION -----*/
-
 
   /*----- @MEDIA Back-Animation -----*/
    
@@ -982,12 +1101,14 @@ p::selection {
     display: none;
   }
 
-  
   .n7, .l7 {
     display: none;
   }
-  
-  
+
+  .project-items {
+    flex-direction: column;
+    align-items: center;
+  }
 }
 
 @media (max-width: 620px) {
@@ -1021,15 +1142,21 @@ p::selection {
   .jsP {
     margin-left: 3.3em;
   }
-/*
-  .jsDiv:hover .afterS::after {
-    animation: none;
-    animation: mediaMissingLetter 4.5s infinite ease-out;
-  }
-  */
 }
 
 @media (max-width: 480px) {
+  .about {
+    margin-top: 1em;
+  }
+
+  .aboutArticleWrapper {
+    flex-direction: column;
+  }
+
+  .linkLogos {
+    margin-top: 2em;
+  }
+  
   .logoDiv {
     height: 100px;
   }
@@ -1049,7 +1176,6 @@ p::selection {
   .jsDiv:hover .afterS::after {
     animation: scndMediaMissingLetter 4.5s infinite ease-out;
   }
-
 }
 
 @media (max-width: 380px) {
@@ -1061,9 +1187,19 @@ p::selection {
   .progLogo {
     height: 70px;
   }
-
+  
   .greeting {
     font-size: 2rem;
+  }
+
+  .preloader {
+    font-size: .7rem;
+  }
+}
+
+@media (max-width: 320px) {
+  .media-img-blocks {
+    scale: 1;
   }
 }
 
@@ -1106,16 +1242,13 @@ p::selection {
     scale: .9;
   }
 
-  .linkLogo {
-    display: none;
-  }
-
   .logoDiv {
     font-size: .5rem;
     width: 190px;
   }
 
 }
+
 @media (max-width: 230px) {
   .greeting {
     font-size: 1.5rem;
@@ -1127,4 +1260,8 @@ p::selection {
   }
 }
 
-
+@media (width: 480px), (height: 320px) {
+  .banner {
+    margin-bottom: 8em;
+  }
+}

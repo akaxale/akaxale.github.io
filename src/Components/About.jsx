@@ -4,7 +4,7 @@ import linkedinLogo from '../images/linkedinLogo.png';
 
 export default function About() {
     return (
-        <section id='about' className='about'>
+        <section id='about' className='about section'>
             <h2 className='aboutMeTag1 tag'>&lt;About me&gt;</h2>
             <div className='aboutArticleWrapper'>
                 <div className='aboutMeArticle'>
@@ -25,8 +25,12 @@ export default function About() {
                 </div>
 
                 <div className="linkLogos">
-                    <img className='linkLogo' src={githubLogo} />
-                    <img className='linkLogo' src={linkedinLogo} />
+                    <a href="https://github.com/akaxale" target="_blank">
+                        <img className='linkLogo' src={githubLogo} />
+                    </a>
+                    <a href="https://linkedin.com/in/akaxale" target="_blank">
+                        <img className='linkLogo' src={linkedinLogo} />
+                    </a>
                 </div>
             </div>
             <h2 className='aboutMeTag1 tag'>&lt;/About me&gt;</h2>

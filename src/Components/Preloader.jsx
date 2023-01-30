@@ -3,8 +3,8 @@ import React, {useState, useEffect} from 'react';
 const text = `
 export default function App() { 
     
-    const [hello, setHello] = React.useState(true)
-    const [isDisciplined, setIsDisciplined] = React.useState(true)
+    const [hello, setHello] = useState(true)
+    const [isDisciplined, setIsDisciplined] = useState(true)
     
     function hireMeBtn() {
         const newEmployee = []
@@ -26,16 +26,9 @@ export default function App() {
     
     return (
         <div>
-            <Header />
-            <Main 
-                employee="Alex"
-            />
             <div>
                 <h1>Hello World</h1>
             </div>
-            <Footer 
-                year="2022"
-            />
         </div>
     )
 }`;
@@ -66,20 +59,7 @@ export default function Preloader(props) {
         }, randomTiming())
         
         if (typeText.endsWith('}')) {
-            /*
-            document.querySelector('.preloader').style.animationName = 'preloaderRemoving'
-            document.querySelector('.preloader').style.animationDuration = '4s'
-            document.querySelector('.preloader').style.animationIterationCount = '1'
-            
-            
-            setTimeout(() => {
-                document.querySelector('.app').style.animationName = 'appShowing'
-                document.querySelector('.preloader').style.animationDuration = '2s'
-                document.querySelector('.preloader').style.animationIterationCount = '1'
-            }, 3500)
-            */
             setTimeout(() => props.loading(), 500)
-            
         }
 
         return () => {
@@ -91,7 +71,7 @@ export default function Preloader(props) {
 
     return (
         <div className='preloader' onClick={() => skip()}>
-            <pre>{`import React, {useState, useEffect} from 'react';
+            <pre>{`import React, {useState} from 'react';
 import Header from './Component/Header'
 import Main from './Component/Main'`}</pre>
             <pre className="preLoaderCode">{typeText}</pre>

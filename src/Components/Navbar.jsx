@@ -26,7 +26,7 @@ export default function Navbar() {
 
     return (
         <nav className="navbar">
-            <h1 className="logo">Sum Cool Logo*</h1>
+            <a href='https://akaxale.github.io/' className="logo">Sum Cool Logo*</a>
 
             <div className="navigation">
                 <a 

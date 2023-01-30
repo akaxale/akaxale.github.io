@@ -1,5 +1,6 @@
 import React from 'react';
 import Navbar from './Navbar';
+import resume from '../resume.pdf'
 
 export default function Header() {
     return (
@@ -12,7 +13,11 @@ export default function Header() {
                     </h2>
                     <h2 className='greeting'>And I am a <span className='important'>Front-End</span></h2>
                     <h2 className='greeting important'>Developer</h2>
-                    <button className='cvBtn'>RESUME</button>
+                    <a href={resume} target="_blank">
+                        <button className='cvBtn'>
+                            RESUME
+                        </button>
+                    </a>
                 </div>
             </div>
             
